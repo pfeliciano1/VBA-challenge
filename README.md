@@ -46,7 +46,7 @@ LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
 'Loop through Tickers
 For i = 2 To LastRow
 
-'    'Conditional for the ticker symbol and the values
+    'Conditional for the ticker symbol and the values
     If ws.Cells(i, 1).Value <> ws.Cells(i + 1, 1).Value Then
         'Set Ticker name
         ticker = ws.Cells(i, 1).Value
@@ -57,37 +57,37 @@ For i = 2 To LastRow
         'Print total stock volume in Summary Table
         ws.Range("L" & SummaryTable).Value = total
         
- '       OpenYr = ws.Cells(i, 3).Value
+        OpenYr = ws.Cells(i, 3).Value
         CloseYr = ws.Cells(i, 6).Value
         'Year change formula and value in Summary Table
         YrChange = CloseYr - OpenYr
         ws.Range("J" & SummaryTable).Value = YrChange
             
-  '          'Conditional for year change and the formatting
+            'Conditional for year change and the formatting
             If YrChange > 0 Then
                 ws.Range("J" & SummaryTable).Interior.ColorIndex = 4
             
-  '          ElseIf YrChange = 0 Then
+            ElseIf YrChange = 0 Then
                 ws.Range("J" & SummaryTable).Interior.ColorIndex = 0
             
-   '         ElseIf YrChange < 0 Then
+            ElseIf YrChange < 0 Then
                 ws.Range("J" & SummaryTable).Interior.ColorIndex = 3
             
-  '          End If
+            End If
             
-  '          'Conditional to Calculate Percent Change
+            'Conditional to Calculate Percent Change
             If OpenYr <> 0 Then
             PercentChange = YrChange / OpenYr  'Percent Change formula
             
- '           Else
+            Else
             PercentChange = 0
             
-  '          End If
+            End If
             
-  '          ws.Range("K" & SummaryTable).Value = PercentChange
+            ws.Range("K" & SummaryTable).Value = PercentChange
             ws.Range("K" & SummaryTable).NumberFormat = "0.00%"
             
-  '      SummaryTable = SummaryTable + 1
+        SummaryTable = SummaryTable + 1
         total = 0
     End If
     
@@ -126,7 +126,7 @@ For j = 2 To LastRow
         ws.Range("P4").Value = ws.Cells(j, 9).Value
         ws.Range("Q4").Value = ws.Cells(j, 12).Value
         
- '   End If
+    End If
     
 Next j
 'Format the columns with AutoFit
