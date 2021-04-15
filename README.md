@@ -1,3 +1,4 @@
+```VBA Script
 Sub Stocks()
 
 'Variable to cycle the Worksheets
@@ -135,3 +136,4 @@ ws.Columns("O:Q").AutoFit
 Next ws
 
 End Sub
+```
